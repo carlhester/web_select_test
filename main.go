@@ -31,9 +31,9 @@ func fetchCars() []ACar {
 func updateUI(rw http.ResponseWriter, req *http.Request) {
 	start := time.Now() // used to track time to perform request
 
-	req.ParseForm()                    // parse the data input by the user
-	userinput = req.Form["cars"]       // specifically find the cars form data
-	log.Printf("%s", req.Form["cars"]) // print the data to the console for debuggin
+	req.ParseForm()                                                    // parse the data input by the user
+	userinput = req.Form["cars"]                                       // specifically find the cars form data
+	log.Printf("[updateUI] User form selection: %s", req.Form["cars"]) // print the data to the console for debuggin
 
 	log.Printf("[updateUI] data served in %s\n", time.Since(start)) //print time to serve to console
 	serveUI(rw, req)                                                // not sure if this is the right way to do this (it leaves the url in the browser bar)
